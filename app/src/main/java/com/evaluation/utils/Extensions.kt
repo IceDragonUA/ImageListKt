@@ -2,9 +2,12 @@ package com.evaluation.utils
 
 import android.widget.ImageView
 import androidx.databinding.BindingAdapter
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.LiveDataReactiveStreams
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout.OnRefreshListener
 import com.evaluation.glide.GlideApp
+import io.reactivex.Single
 
 
 /**
@@ -29,3 +32,6 @@ fun SwipeRefreshLayout.setRefresher(refreshing: Boolean) {
 fun SwipeRefreshLayout.setListener(listener: OnRefreshListener) {
     this.setOnRefreshListener(listener)
 }
+
+fun <T> Single<T>.toLiveData() : LiveData<T> =
+    LiveDataReactiveStreams.fromPublisher(this.toFlowable())

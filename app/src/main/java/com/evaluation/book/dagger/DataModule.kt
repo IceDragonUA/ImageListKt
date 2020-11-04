@@ -2,8 +2,6 @@ package com.evaluation.book.dagger
 
 import android.content.Context
 import com.evaluation.book.database.AppDatabaseDao
-import com.evaluation.book.interaction.AppBooksInteraction
-import com.evaluation.book.interaction.AppBooksInteractionImpl
 import com.evaluation.book.mapper.BookMapper
 import com.evaluation.book.network.AppRestApiDao
 import com.evaluation.book.network.AppRestApiDaoImpl
@@ -33,10 +31,5 @@ object DataModule {
     @Provides
     fun appRepository(context: Context, mapper: BookMapper, remoteDao: AppRestApiDao, localDao: AppDatabaseDao) : AppBooksRepository =
         AppBooksRepositoryImpl(context, mapper, remoteDao, localDao)
-
-    @Singleton
-    @Provides
-    fun appInteraction(repository: AppBooksRepository): AppBooksInteraction =
-        AppBooksInteractionImpl(repository)
 
 }
