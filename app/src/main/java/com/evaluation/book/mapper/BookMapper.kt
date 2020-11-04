@@ -15,6 +15,7 @@ class BookMapper @Inject constructor() {
         return item.let {
             BookTableItem(
                 index = index,
+                id = it.id.defIfNull(),
                 smallThumbnail = it.volumeInfo.imageLinks.smallThumbnail.defIfNull(),
                 thumbnail = it.volumeInfo.imageLinks.smallThumbnail.defIfNull()
             )

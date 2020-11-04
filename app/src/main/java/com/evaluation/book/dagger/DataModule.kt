@@ -8,6 +8,7 @@ import com.evaluation.book.mapper.BookMapper
 import com.evaluation.book.network.AppRestApiDao
 import com.evaluation.book.network.AppRestApiDaoImpl
 import com.evaluation.book.repository.AppBooksRepository
+import com.evaluation.book.repository.AppBooksRepositoryImpl
 import com.evaluation.database.AppDatabase
 import com.evaluation.network.RestApi
 import dagger.Module
@@ -30,8 +31,8 @@ object DataModule {
 
     @Singleton
     @Provides
-    fun appRepository(context: Context, mapper: BookMapper, remoteDao: AppRestApiDao, localDao: AppDatabaseDao) =
-        AppBooksRepository(context, mapper, remoteDao, localDao)
+    fun appRepository(context: Context, mapper: BookMapper, remoteDao: AppRestApiDao, localDao: AppDatabaseDao) : AppBooksRepository =
+        AppBooksRepositoryImpl(context, mapper, remoteDao, localDao)
 
     @Singleton
     @Provides

@@ -4,6 +4,7 @@ import android.app.Application
 import android.content.Context
 import androidx.room.Room
 import com.evaluation.database.AppDatabase
+import com.evaluation.database.migration.MIGRATION_1_2
 import com.evaluation.network.RestApi
 import com.evaluation.utils.BASE_URL
 import com.evaluation.utils.DATABASE_NAME
@@ -65,7 +66,7 @@ object AndroidModule {
     @Singleton
     fun appDatabase(context: Context): AppDatabase =
         Room.databaseBuilder(context, AppDatabase::class.java, DATABASE_NAME)
-            .fallbackToDestructiveMigration()
+            .addMigrations(MIGRATION_1_2)
             .allowMainThreadQueries()
             .build()
 

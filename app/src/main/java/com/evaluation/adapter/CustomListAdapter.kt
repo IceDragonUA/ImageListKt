@@ -13,7 +13,7 @@ class CustomListAdapter constructor(private val typeFactory: TypesFactory, priva
     : RecyclerView.Adapter<BaseViewHolder<BaseItemView>>(), DiffUtilCallback {
 
     var items: MutableList<BaseItemView> by Delegates.observable(mutableListOf()) { _, old, new ->
-        autoNotify(old, new) { o, n -> o.hashCode() == n.hashCode() }
+        autoNotify(old, new) { o, n -> o.id == n.id }
     }
 
     @Suppress("UNCHECKED_CAST")

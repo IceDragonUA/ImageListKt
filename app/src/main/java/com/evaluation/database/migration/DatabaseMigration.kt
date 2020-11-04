@@ -1,0 +1,11 @@
+package com.evaluation.database.migration
+
+import androidx.room.migration.Migration
+import androidx.sqlite.db.SupportSQLiteDatabase
+
+val MIGRATION_1_2: Migration = object : Migration(1, 2) {
+
+    override fun migrate(database: SupportSQLiteDatabase) {
+        database.execSQL("ALTER TABLE books ADD COLUMN id TEXT DEFAULT '' NOT NULL")
+    }
+}

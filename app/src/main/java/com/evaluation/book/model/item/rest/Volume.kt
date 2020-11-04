@@ -7,6 +7,8 @@ import com.google.gson.annotations.SerializedName
  * @since 07.10.2020
  */
 data class Volume(
+    @SerializedName("id")
+    val id: String,
     @SerializedName("volumeInfo")
     val volumeInfo: VolumeInfo
 )

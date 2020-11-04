@@ -7,7 +7,7 @@ package com.evaluation.utils
 const val BASE_URL = "https://www.googleapis.com/books/v1/"
 
 const val DATABASE_NAME = "database"
-const val DATABASE_VERSION = 1
+const val DATABASE_VERSION = 2
 
 const val NO_ITEM = "NO_ITEM"
 

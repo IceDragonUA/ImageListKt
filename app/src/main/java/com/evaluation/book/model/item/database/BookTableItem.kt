@@ -11,6 +11,7 @@ import androidx.room.PrimaryKey
 data class BookTableItem(
     @PrimaryKey
     var index: Int,
+    var id: String,
     val smallThumbnail: String,
     val thumbnail: String
 )
